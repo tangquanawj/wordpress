@@ -1,0 +1,4 @@
+mysql --version
+        可以用来查看mysql的版本信息
+        
+--version的后缀可以查看很多linux的版本信息
