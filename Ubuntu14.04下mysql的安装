@@ -1,0 +1,15 @@
+第一步：更新源列表
+打开"终端窗口"，输入"sudo apt-get update"-->回车-->"输入root用户的密码"-->回车,就可以了。
+如果不运行该命令，直接安装mysql,会出现"有几个软件包无法下载，您可以运行apt-get update------"的错误提示，导致无法安装。
+因为我采用的是阿里云的Ubuntu14.04系统，使用的是secureCRT连接的，连接时我使用的root连接，所有不需要再输入密码。
+
+第二步：安装mysql
+打开"终端窗口"，输入"sudo apt-get install mysql-server mysql-client"-->回车-->输入"y"-->回车-->在"软件包设置对话框"中输入mysql中"root"用户的密码-->回车-->再输一次密码-->回车,安装完成。
+ps：在这里有个问题，执行完这个命令之后会出现configure页面，中间的所有中文为乱码。不要管他，直接输入mysql的密码，回车就会继续操作，因此出现乱码问题也没关系，不影响。
+
+第三步：如何判断mysql是否安装成功
+打开"终端窗口"，输入"sudo service mysql restart"-->回车-->如果mysql启动成功，处于运行状态说明mysql安装成功。
+运行结果为：mysql stop/waiting
+			mysql start/running, process 6905
+			
+最后再试试怎么让mysql支持nginx。因为我安装的是nginx。
