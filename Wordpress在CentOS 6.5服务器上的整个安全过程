@@ -8,6 +8,7 @@
 2、在本地机终端创建一个数据库：以名字为wordpress的数据库为例
   mysql -u root -p
   输入密码                      
+  
   //提示：这里可能会遇到两种错误：
   1、Can-t-connect-to-local-MySQL-server-through-socket/var/lib/mysql/mysql.sock'
     这种情况是没有开启mysql引起的。因为没有设置自动启动，所以每次关机后不会自动启动apache、mysql、php服务
