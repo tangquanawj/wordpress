@@ -1,0 +1,2 @@
+1、chmod 775 hello 只给这个hello文件或文件夹赋予了775的权限
+2、chmod -R 775 hello 给这个hello文件和他的所有子文件夹赋予权限。
