@@ -1,0 +1,38 @@
+1、安装php mysql apache环境：
+  yum install -y httpd php php-fpm mysql mysql-server php-mysql
+  开启php mysql apache服务
+  service httpd start
+  service mysqld start
+  service php-fpm start
+  
+2、在本地机终端创建一个数据库：以名字为wordpress的数据库为例
+  mysql -u root -p
+  输入密码                      
+  //提示：这里可能会遇到两种错误：
+  1、Can-t-connect-to-local-MySQL-server-through-socket/var/lib/mysql/mysql.sock'
+    这种情况是没有开启mysql引起的。因为没有设置自动启动，所以每次关机后不会自动启动apache、mysql、php服务
+  2、mysql -u root -p
+    ERROR 1045(28000): Access denied for user 'root'@'localhost'(using password: YES)
+    这种情况一般是忘记了密码导致的 进入mysql的安全模式进行换密码的操作
+      1、 停掉MySQL服务：
+         /etc/init.d/mysqld stop
+      2、使用safe模式，进行重启：
+         mysqld_safe --skip-grant-tables   这一步执行完之后光标会一直闪烁，需要重开一个终端执行下一个操作。
+      3、使用root账户，无密码登录：
+        mysql -u root
+      4、选择mysql database:
+        use mysql;
+      5、为root用户更改密码为： 123456（自行设定）：
+        update user set password=PASSWORD("123456") where User = 'root';
+      6、停止MySQL 服务：
+      /etc/init.d/mysqld stop
+      重新启动MySQL服务：
+      /etc/init.d/mysqld start
+      使用root账户正常登录：
+      mysql -u root -p
+3、将wordpress解压后的文件（不包括wordpress文件夹本身）通过winSCP传入/var/www/html/文件夹下。
+   在浏览器输入服务器的地址进行安装(install)
+   设置数据库的名字(wordpress)、数据库的用户(root)和数据库的密码(进入数据库的密码)
+   因为没有对/var/www/html/赋予相应的权限，它会提示一个无法创建wp-config.php的文件，需要我们手动创建一个wp-config.php文件。
+   此时可以通过winSCP创建一个wp-config.php文件上传过去即可。
+   继续设置即可
