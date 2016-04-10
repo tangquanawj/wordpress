@@ -1,0 +1,2 @@
+删除known_hosts的文件
+这个文件在/home/yourname/.ssh/known_hosts下
