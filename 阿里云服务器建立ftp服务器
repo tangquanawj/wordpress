@@ -1,0 +1,20 @@
+1、执行yum install vsftpd -y 如果不行，请更新yum源(yum check -update)
+2、对Vsftpd进行配置：
+  使用命令vi /etc/vsftpd/vsftpd.conf
+  使用命令vi /etc/vsftpd/vsftpd.conf
+  这时候打开了该文件
+  第一次接触的时候注意光标
+  按INSERT键可以更改，左下角变成-- INSERT --
+  刚打开的时候并未显示完全，控制光标多往下走一段
+  需要修改的有几点
+  anonymous_enable=YES  禁止匿名访问
+  降YES改成NO
+  #ascii_upload_enable 允许使用ascii码上传
+  #ascii_download_enable 允许使用ascii码下载
+  去掉前面的“#”号
+  按ESC建，再输入“：”，发现左下角可以输入了
+  输入wq后按回车，配置完成。
+3、启动vsftpd： service vsftpd start
+
+
+
